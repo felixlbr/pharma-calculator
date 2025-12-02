@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculateur</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Calculateur</h1>
+
+        <div class="section">
+            <h2>Données de votre pharmacie</h2>
+            <label>
+                Visiteurs/jour
+                <span class="info-icon" data-info="Nombre moyen de visiteurs quotidiens dans l'officine.">ⓘ</span>
+            </label>
+            <input type="number" id="input1" />
+
+            <label>
+                Part du CA dermo cosmétique (%)
+                <span class="info-icon" data-info="Pourcentage du chiffre d'affaires annuel provenant des produits dermo-cosmétiques.">ⓘ</span>
+            </label>
+            <input type="number" id="input2" />
+
+            <div class="result" id="resultAdvanced">Bénéfices estimés : —</div>
+        </div>
+
+        <div class="section advanced-toggle" id="toggleAdvanced">➕</div>
+
+        <div class="section advanced hidden" id="advancedSection">
+            <h2>Scénario de performance</h2>
+
+            <label>
+                Taux d'utilisation de la borne (%)
+                <span class="info-icon" data-info="Pourcentage de visiteurs utilisant la borne d'analyse de peau.">ⓘ</span>
+            </label>
+            <input type="number" id="coefA" placeholder="optionnel" />
+
+            <label>
+                Conversion analyse → achat (%)
+                <span class="info-icon" data-info="Pourcentage de visiteurs utilisant l'analyse de peau qui effectuent un achat.">ⓘ</span>
+            </label>
+            <input type="number" id="coefB" placeholder="optionnel" />
+
+            <label>
+                Augmentation du panier (%)
+                <span class="info-icon" data-info="Pourcentage d'augmentation du panier moyen grâce à l'analyse de peau.">ⓘ</span>
+            </label>
+            <input type="number" id="coefC" placeholder="optionnel" />
+
+            <label>
+                Panier moyen hors ordonnance (€)
+                <span class="info-icon" data-info="Montant moyen du panier hors ordonnance.">ⓘ</span>
+            </label>
+            <input type="number" id="coefD" placeholder="optionnel" />
+
+            <label>
+                Jours d'ouverture par an
+                <span class="info-icon" data-info="Nombre de jours d'ouverture de l'officine par an.">ⓘ</span>
+            </label>
+            <input type="number" id="coefE" placeholder="optionnel" />
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
