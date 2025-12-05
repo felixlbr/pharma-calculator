@@ -12,57 +12,63 @@
 
         <div class="section">
             <h2>Données de votre pharmacie</h2>
+            <p class="description">Ces informations adaptent le calcul à la réalité de votre officine pour une estimation fiable.</p>
             <label>
                 Visiteurs/jour
                 <span class="info-icon" data-info="Nombre moyen de visiteurs quotidiens dans l'officine.">ⓘ</span>
             </label>
-            <input type="number" id="input1" />
+            <input type="number" id="input1" min="0" class="nombre"/>
 
             <label>
                 Part du CA dermo cosmétique (%)
                 <span class="info-icon" data-info="Pourcentage du chiffre d'affaires annuel provenant des produits dermo-cosmétiques.">ⓘ</span>
             </label>
-            <input type="number" id="input2" />
+            <input type="number" id="input2" min="0" max="100" class="nombre pourcentage"/>
 
-            <div class="result" id="resultAdvanced">Bénéfices estimés : —</div>
-        </div>
+                    <div class="section advanced-toggle" id="toggleAdvanced">➕</div>
 
-        <div class="section advanced-toggle" id="toggleAdvanced">➕</div>
-
-        <div class="section advanced hidden" id="advancedSection">
+        <div class="advanced hidden" id="advancedSection">
             <h2>Scénario de performance</h2>
-
+            <p class="description">Ces scénarios reposent sur des hypothèses réalistes, ajustables selon votre officicine pour affiner le résultat.</p>
             <label>
                 Taux d'utilisation de la borne (%)
                 <span class="info-icon" data-info="Pourcentage de visiteurs utilisant la borne d'analyse de peau.">ⓘ</span>
             </label>
-            <input type="number" id="coefA" placeholder="optionnel" />
+            <input type="number" id="coefA" min="0" max="100" class="nombre pourcentage" placeholder="optionnel" />
 
             <label>
                 Conversion analyse → achat (%)
                 <span class="info-icon" data-info="Pourcentage de visiteurs utilisant l'analyse de peau qui effectuent un achat.">ⓘ</span>
             </label>
-            <input type="number" id="coefB" placeholder="optionnel" />
+            <input type="number" id="coefB" min="0" max="100" class="nombre pourcentage" placeholder="optionnel" />
 
             <label>
                 Augmentation du panier (%)
                 <span class="info-icon" data-info="Pourcentage d'augmentation du panier moyen grâce à l'analyse de peau.">ⓘ</span>
             </label>
-            <input type="number" id="coefC" placeholder="optionnel" />
+            <input type="number" id="coefC" min="0" max="100" class="nombre pourcentage" placeholder="optionnel" />
 
             <label>
                 Panier moyen hors ordonnance (€)
                 <span class="info-icon" data-info="Montant moyen du panier hors ordonnance.">ⓘ</span>
             </label>
-            <input type="number" id="coefD" placeholder="optionnel" />
+            <input type="number" id="coefD" min="0" class="nombre" placeholder="optionnel" />
 
             <label>
                 Jours d'ouverture par an
                 <span class="info-icon" data-info="Nombre de jours d'ouverture de l'officine par an.">ⓘ</span>
             </label>
-            <input type="number" id="coefE" placeholder="optionnel" />
+            <input type="number" id="coefE" min="0" max="365" class="nombre" placeholder="optionnel" />
 
         </div>
+        </div>
+        
+
+
+        <div class="result" id="resultAdvanced">Bénéfices estimés : —</div>
+
+        <p id="asterisque">Les icônes ⓘ expliquent chaque donnée pour un remplissage simple et rapide.</p>
+
 
     </div>
 

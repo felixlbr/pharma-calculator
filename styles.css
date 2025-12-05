@@ -13,6 +13,10 @@ body {
     margin-right: auto;
 }
 
+h2 {
+    margin:0 0 10px 0;
+}
+
 h1, h2 {
     color: #8a5b2c;
 }
@@ -21,6 +25,7 @@ h1, h2 {
     background: #fff5e6;
     padding: 15px;
     margin-top: 20px;
+    margin-bottom: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -44,6 +49,7 @@ input[type="number"] {
 
 .result {
     margin-top: 15px;
+    margin-bottom: 15px;
     font-size: 18px;
     font-weight: bold;
     background: #f4e2c6;
@@ -63,15 +69,15 @@ input[type="number"] {
 .hidden { display: none; }
 
 .info-icon {
-    display: inline-block;
-    margin-left: 6px;
-    cursor: pointer;
-    color: #8a5b2c;
-    font-weight: bold;
-    border-radius: 50%;
-    padding: 0 5px;
-    font-size: 14px;
     position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;   /* élargit la zone cliquable */
+    height: 26px;
+    border-radius: 50%;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 /* Conteneur du tooltip */
@@ -109,6 +115,17 @@ input[type="number"] {
     border-color: transparent transparent #4b3f2f transparent;
     opacity: 0;
     transition: opacity 0.2s ease;
+}
+.description {
+    font-size: 14px;
+    color: #555;
+    margin-top: 5px;
+}
+
+#asterisque {
+    font-size: 12px;
+    color: #777;
+    margin-top: 10px;
 }
 
 /* Affichage au survol */

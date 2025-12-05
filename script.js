@@ -23,6 +23,10 @@ const defaultRangeC = { min: 30, max: 30 };
 const defaultRangeD = { min: 15, max: 15 };
 const defaultRangeE = { min: 312, max: 312 };
 
+// Vérification des valeurs
+const nombre = { min: 0 };
+const pourcentage = { min: 0, max: 100 };
+
 
 function updateAdvanced() {
     const val1 = Number(input1.value) || 0;
@@ -54,6 +58,19 @@ function updateAdvanced() {
         ? { min: Number(coefE.value), max: Number(coefE.value) }
         : defaultRangeE;
 
+    // Vérification des valeurs
+    if (
+        (val1 <= 0) ||
+        (val2 < 0 || val2 > 100) ||
+        (hasCustomA && (Number(coefA.value) < nombre.min || Number(coefA.value) > pourcentage.max)) ||
+        (hasCustomB && (Number(coefB.value) < nombre.min || Number(coefB.value) > pourcentage.max)) ||
+        (hasCustomC && (Number(coefC.value) < nombre.min || Number(coefC.value) > pourcentage.max)) ||
+        (hasCustomD && Number(coefD.value) < nombre.min) ||
+        (hasCustomE && (Number(coefE.value) < nombre.min || Number(coefE.value) > 365))
+    ) {
+        resultAdvanced.textContent = "Bénéfices estimés : —";
+        return;
+    }
 
     // Calculs intermédiaires
     const min_nb_achat_generes = val1 * rangeA.min/100 * rangeB.min/100;
@@ -64,10 +81,23 @@ function updateAdvanced() {
     const minResult = Math.round(min_nb_achat_generes * min_panier_moy_final * rangeE.min * val2/100);
     const maxResult = Math.round(max_nb_achat_generes * max_panier_moy_final * rangeE.max * val2/100);
 
-    resultAdvanced.textContent =
-        minResult === maxResult && minResult !== 0
-        ? `Bénéfices estimés : ${minResult}`
-        : `Bénéfices estimés : ${minResult} à ${maxResult}`;
+    if (isNaN(minResult) || isNaN(maxResult)) {
+        resultAdvanced.textContent = "Bénéfices estimés : —";
+        return;
+    }
+    else{
+        if (minResult.valueOf() === 0){
+            resultAdvanced.textContent = "Bénéfices estimés : —";
+        }
+        else {
+            resultAdvanced.textContent =
+                minResult === maxResult
+                ? `Bénéfices estimés : ${minResult}`
+                : `Bénéfices estimés : ${minResult} à ${maxResult}`;
+        }
+        return;
+    }
+
 
 }
 
@@ -92,4 +122,10 @@ document.getElementById("toggleAdvanced").addEventListener("click", function () 
         section.classList.remove("hidden");
         this.textContent = "➖";
     }
+});
+
+document.querySelectorAll('.info-icon').forEach(icon => {
+    icon.addEventListener('click', () => {
+        icon.classList.toggle('active');
+    });
 });
